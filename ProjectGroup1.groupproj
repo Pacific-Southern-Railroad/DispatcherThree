@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3AF7112C-FC1D-4BCF-9E00-11CFF1669369}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PSRYProject.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\RemoteDispatcher\Project2.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PSRYProject">
+        <MSBuild Projects="PSRYProject.cbproj"/>
+    </Target>
+    <Target Name="PSRYProject:Clean">
+        <MSBuild Projects="PSRYProject.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PSRYProject:Make">
+        <MSBuild Projects="PSRYProject.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project2">
+        <MSBuild Projects="..\RemoteDispatcher\Project2.cbproj"/>
+    </Target>
+    <Target Name="Project2:Clean">
+        <MSBuild Projects="..\RemoteDispatcher\Project2.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project2:Make">
+        <MSBuild Projects="..\RemoteDispatcher\Project2.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PSRYProject;Project2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PSRYProject:Clean;Project2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PSRYProject:Make;Project2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

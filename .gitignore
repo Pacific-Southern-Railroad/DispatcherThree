@@ -1,0 +1,12 @@
+
+__history/*
+__recovery/*
+*.obj
+Win32/Release/*
+Win32/Debug/*
+Win32/TextFiles/*
+Win32/Simulation/*
+PSRYProject.stat
+PSRYProject.res
+
+*.txt
