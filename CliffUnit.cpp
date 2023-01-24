@@ -194,7 +194,7 @@ void TPSRY::Cliff(void)
 	{
 		C10.NxtE = &C20;		//C10 to C20
 		C20.NxtW = &C10;
-		C10.RtE = C20.RtW = Slow;
+		C10.RtE = C20.RtW = Main;
 		C10.OSE = C20.OSW = COS2;
 		if(CSigL2.R || CSigL2.L || COS2 && !CRelease)
 			CSw31.L = true;
